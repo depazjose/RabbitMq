@@ -23,7 +23,7 @@ public class PubsubApplication  implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		for (int x=0; x<=150; x++) {
 			Payload payload = Payload.builder().message("messages" + x).build();
-			rabbitSenderTopic.sendToTopicExchange(payload, "demo.mdt");
+			rabbitSenderTopic.sendToTopicExchange(payload, "rabbitmq.#");
 			Thread.sleep(1000);
 			System.out.println("send message:" + x);
 		}
